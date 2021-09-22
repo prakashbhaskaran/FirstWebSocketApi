@@ -9,8 +9,8 @@ const Card = ({ currence }) => {
   const Bdata = useSelector((state) => state.gets.items);
 
   useEffect(() => {
-    dispatch(fetchposts(currence, connect));
-  }, [dispatch, currence, connect]);
+    dispatch(fetchposts(connect));
+  }, [dispatch, connect]);
 
   const bb = Bdata.map((item, index) => {
     return <div key={index}>{item}</div>;
@@ -31,48 +31,77 @@ const Card = ({ currence }) => {
         </div>
       ) : (
         <ul className="CardContainer">
-          <div className="left">
-            <li>{currence}</li>
-            <li>
-              <span style={{ color: "grey" }}>VOL</span>{" "}
-              {(bb[7].props.children * 10000)
-                .toFixed()
-                .toString()
-                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-            </li>
-            <li
-              style={{
-                lineHeight: "initial",
-                display: "flex",
-                gap: "5px",
-              }}
-            >
-              <span style={{ color: "grey" }}>LOW</span> {bb[9]}
-            </li>
-          </div>
-          <div className="right">
-            <li>{bb[6].props.children.toFixed(2)}</li>
-            <li
-              style={{
-                color: "#00c921",
-              }}
-            >
-              {Math.abs(
-                (bb[8].props.children - bb[9].props.children) % 100
-              ).toFixed(2)}
-              <span>
-                {" "}
-                {Math.abs(
-                  ((bb[8].props.children - bb[9].props.children) /
-                    bb[9].props.children) *
-                    100
-                ).toFixed(2)}
-              </span>
-            </li>
-            <li>
-              <span style={{ color: "grey" }}>HIGH </span>
-              {bb[8].props.children.toFixed(2)}
-            </li>
+          <div className="image">&#8383;</div>
+          <div className="flex">
+            <div className="left">
+              <li>{currence}</li>
+              <li>
+                <span style={{ color: "grey" }}>VOL</span>{" "}
+                {(bb[7].props.children * 10000)
+                  .toFixed()
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                <span style={{ color: "grey", textDecoration: "underline" }}>
+                  BTC
+                </span>
+              </li>
+              <li
+                style={{
+                  display: "flex",
+                  gap: "5px",
+                }}
+              >
+                <span style={{ color: "grey" }}>LOW</span>{" "}
+                {bb[9].props.children
+                  .toFixed(1)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </li>
+            </div>
+            <div className="right">
+              <li>
+                {bb[6].props.children
+                  .toFixed(1)
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </li>
+              <li
+                style={{
+                  color: "yellowgreen",
+                }}
+              >
+                {((bb[8].props.children - bb[9].props.children) % 100).toFixed(
+                  2
+                )}
+                <span>
+                  {" "}
+                  {Math.abs(
+                    ((bb[8].props.children - bb[9].props.children) /
+                      bb[9].props.children) *
+                      100
+                  ).toFixed(2) > 0 ? (
+                    <span>&#9650;</span>
+                  ) : (
+                    <span>&#9660;</span>
+                  )}
+                </span>
+                <span>
+                  {" "}
+                  {Math.abs(
+                    ((bb[8].props.children - bb[9].props.children) /
+                      bb[9].props.children) *
+                      100
+                  ).toFixed(2)}
+                </span>
+              </li>
+              <li>
+                <span style={{ color: "grey" }}>HIGH </span>
+                {bb[8].props.children
+                  .toFixed()
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </li>
+            </div>
           </div>
         </ul>
       )}

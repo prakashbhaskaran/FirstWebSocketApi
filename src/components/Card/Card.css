@@ -1,6 +1,6 @@
 .CardContainer {
   display: flex;
-  justify-content: space-between;
+  gap: 2em;
   line-height: 2;
   width: 100%;
   margin: auto;
@@ -8,12 +8,21 @@
   box-shadow: 0 0 10px black;
   align-items: center;
   padding: 10px;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: sans-serif;
 }
 
 .CardContainer li {
   list-style: none;
   padding: 0;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+
+  flex: 1;
+}
+.right {
+  text-align: right;
 }
 .buttons {
   margin: 50px 0;
@@ -38,6 +47,14 @@ button:hover {
   background: #222;
   color: white;
 }
+.image {
+  font-size: 48px;
+  font-weight: 800;
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  line-height: initial;
+}
+
 @media screen and (max-width: 414px) {
   .CardContainer {
     flex-direction: column;

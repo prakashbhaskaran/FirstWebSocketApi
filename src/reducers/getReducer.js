@@ -1,7 +1,6 @@
-import { GET_POSTS, GET_SINGLE_POST } from "../actions/types";
+import { GET_POSTS } from "../actions/types";
 const initialState = {
   items: [],
-  item: {},
 };
 export const getReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -9,11 +8,6 @@ export const getReducer = (state = initialState, action) => {
       return {
         ...state,
         items: action.payload,
-      };
-    case GET_SINGLE_POST:
-      return {
-        ...state,
-        item: action.payload,
       };
     default:
       return state;

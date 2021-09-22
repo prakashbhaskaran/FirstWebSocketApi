@@ -1,12 +1,10 @@
-import { GET_POSTS, GET_SINGLE_POST } from "./types";
-
-export const fetchposts = (currency, connect) => (dispatch) => {
-  const ws = new WebSocket("wss://api-pub.bitfinex.com/ws/2");
-
+import { GET_POSTS } from "./types";
+const ws = new WebSocket("wss://api-pub.bitfinex.com/ws/2");
+export const fetchposts = (connect) => (dispatch) => {
   let msg = JSON.stringify({
     event: "subscribe",
     channel: "ticker",
-    symbol: currency,
+    symbol: "BTCUSD",
   });
   if (connect) {
     ws.onopen = () => {
@@ -27,21 +25,4 @@ export const fetchposts = (currency, connect) => (dispatch) => {
   } else if (!connect || ws.url !== "") {
     return ws.close();
   }
-};
-
-export const fetchitem = (id) => (dispatch) => {
-  fetch("url", {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-    },
-    body: JSON.stringify({ id: id }),
-  })
-    .then((res) => res.json())
-    .then((data) =>
-      dispatch({
-        type: GET_SINGLE_POST,
-        payload: data,
-      })
-    );
 };

@@ -1,10 +1,10 @@
 //eslint-disable-next-line
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "../Card/Card";
 import "./Select.css";
-import { cur } from "../Currency";
+
 const Select = () => {
-  const [currence, setCurrency] = useState("BTCUSD");
+  const currence = "BTC/USD";
   /*   const [a, set] = useState([]);
   console.log(a);
   useEffect(() => {
@@ -21,29 +21,8 @@ const Select = () => {
       .catch((error) => console.log("error", error));
   }, []); */
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setCurrency(e.target.value);
-  };
-
   return (
     <div className="main">
-      <div className="selectcontainer">
-        {" "}
-        <select
-          className="select"
-          onChange={handleChange}
-          defaultValue={currence}
-        >
-          {cur.map((item, index) => {
-            return (
-              <option value={item} key={index}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
-      </div>
       <div>
         <Card currence={currence} />
       </div>

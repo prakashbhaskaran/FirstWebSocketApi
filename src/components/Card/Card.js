@@ -36,12 +36,18 @@ const Card = ({ currence }) => {
             <div className="left">
               <li>{currence}</li>
               <li>
-                <span style={{ color: "grey" }}>VOL</span>{" "}
+                <span style={{ color: "grey", textAlign: "center" }}>VOL</span>{" "}
                 {(bb[7].props.children * 10000)
                   .toFixed()
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                <span style={{ color: "grey", textDecoration: "underline" }}>
+                <span
+                  style={{
+                    color: "grey",
+                    textDecoration: "underline",
+                    textAlign: "center",
+                  }}
+                >
                   BTC
                 </span>
               </li>

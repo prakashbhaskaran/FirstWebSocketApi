@@ -7,7 +7,7 @@
   color: white;
   box-shadow: 0 0 10px black;
   align-items: center;
-  padding: 10px;
+  padding: 15px 10px;
   font-family: sans-serif;
 }
 
@@ -50,14 +50,20 @@ button:hover {
 .image {
   font-size: 48px;
   font-weight: 800;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 
   line-height: initial;
 }
 
-@media screen and (max-width: 414px) {
-  .CardContainer {
+@media screen and (max-width: 500px) {
+  .CardContainer,
+  .flex {
     flex-direction: column;
+    text-align: center;
+  }
+
+  .right,
+  .left {
     text-align: center;
   }
 }

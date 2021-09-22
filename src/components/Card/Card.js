@@ -36,14 +36,16 @@ const Card = ({ currence }) => {
             <div className="left">
               <li>{currence}</li>
               <li>
-                <span style={{ color: "grey", textAlign: "center" }}>VOL</span>{" "}
+                <span style={{ color: "#C0C0C0", textAlign: "center" }}>
+                  VOL
+                </span>{" "}
                 {(bb[7].props.children * 10000)
                   .toFixed()
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
                 <span
                   style={{
-                    color: "grey",
+                    color: "#C0C0C0",
                     textDecoration: "underline",
                     textAlign: "center",
                   }}
@@ -57,7 +59,7 @@ const Card = ({ currence }) => {
                   gap: "5px",
                 }}
               >
-                <span style={{ color: "grey" }}>LOW</span>{" "}
+                <span style={{ color: "	#C0C0C0" }}>LOW</span>{" "}
                 {bb[9].props.children
                   .toFixed(1)
                   .toString()
@@ -101,7 +103,7 @@ const Card = ({ currence }) => {
                 </span>
               </li>
               <li>
-                <span style={{ color: "grey" }}>HIGH </span>
+                <span style={{ color: "#C0C0C0" }}>HIGH </span>
                 {bb[8].props.children
                   .toFixed()
                   .toString()

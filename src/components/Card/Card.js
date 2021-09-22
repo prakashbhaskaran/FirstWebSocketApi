@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchposts } from "../../actions/getAction";
+
 import "./Card.css";
 const Card = ({ currence }) => {
   const dispatch = useDispatch();
@@ -53,12 +54,7 @@ const Card = ({ currence }) => {
                   BTC
                 </span>
               </li>
-              <li
-                style={{
-                  display: "flex",
-                  gap: "5px",
-                }}
-              >
+              <li className="low">
                 <span style={{ color: "	#C0C0C0" }}>LOW</span>{" "}
                 {bb[9].props.children
                   .toFixed(1)
